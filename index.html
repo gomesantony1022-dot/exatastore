@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+            Exata-Store 
+        </title>
+        <link rel="stylesheet"
+    href="style.css">
+    </head>  
+
+    <body>
+        <header>
+
+            <h1>
+                Exata-Store
+            </h1>
+
+            <input 
+            id="pesquisa"
+            type="text"
+            placeholder="Pesquisar produtos" >
+
+            <button class="pesquisar-btn"
+            onclick="pesquisar()">
+                pesquisar
+            </button>
+
+            <button>
+                Login
+            </button>
+
+            <button>
+                Cadastro
+            </button>
+
+        </header>
+
+        <section class="banner">
+
+            <h2>
+                Bem-vindo à Exata Store
+            </h2>
+
+            <p>
+                Milhares de produtos com entrega rápida.
+            </p>
+
+            <button>
+                Comprar Agora
+            </button>
+        </section>
+            <h3 id="contador-carrinho">
+            Carrinho: 0 itens
+            </h3>
+
+             <div id="lista-carrinho">
+                <h3 id="total-carrinho">
+                    Total: R$ 0
+                </h3>
+             </div>
+
+        <section class="produtos">
+            <h2>Produtos em Destaque</h2>
+            
+            <div id="lista-produtos"></div>
+
+        </section>
+
+        <script src="script.js"></script>
+    </body>
+    </html>

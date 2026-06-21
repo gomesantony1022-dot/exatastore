@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #222;
+    padding: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+h1 {
+    color: #ff5722;
+}
+
+input {
+    width: 300PX;
+
+    padding: 10px;
+}
+
+button {
+    padding: 10px 15px;
+
+    cursor: pointer;
+}
+
+.pesquisar-btn {
+
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+
+}
+
+.banner {
+    text-align: center;
+
+    padding: 80px;
+    background-color: #f5f5f5;
+
+}
+
+.banner h2 {
+    font-size: 40px;
+
+}
+
+.banner p {
+    font-size: 20px;
+
+}
+
+.banner button {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    cursor: pointer;
+
+}
+
+.produtos {
+    padding: 40px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+
+
+}
+
+.card button {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
