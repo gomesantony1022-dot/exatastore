@@ -1,71 +1,117 @@
 <!DOCTYPE html>
-    <html>
-    <head>
-        <title>
-            Exata-Store 
-        </title>
-        <link rel="stylesheet"
-    href="style.css">
-    </head>  
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exata Store | Orçamento de Timecode</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <body>
-        <header>
+    <header class="navbar">
+        <div class="logo">Exata<span>Store</span></div>
+        <div class="tagline">Programação de Iluminação & Timecode</div>
+    </header>
 
-            <h1>
-                Exata-Store
-            </h1>
+    <main class="container-orcamento">
+        
+        <section class="card-formulario">
+            <h2>Simule seu Orçamento</h2>
+            <p class="instrucoes">Preencha os dados abaixo para receber sua estimativa e iniciar o atendimento técnico.</p>
 
-            <input 
-            id="pesquisa"
-            type="text"
-            placeholder="Pesquisar produtos" >
+            <form id="form-orcamento" action="https://api.web3forms.com/submit" method="POST">
+                
+                <input type="hidden" name="access_key" id="web3forms-key" value="SUA-CHAVE-AQUI">
+                <input type="hidden" name="subject" value="Novo Orçamento de Timecode recebido pelo Site!">
+                <input type="hidden" name="redirect" value="">
 
-            <button class="pesquisar-btn"
-            onclick="pesquisar()">
-                pesquisar
-            </button>
+                <h3>1. Seus Dados de Contato</h3>
+                <div class="grupo-campo">
+                    <label for="nome-cliente">Seu Nome / Nome do Artista:</label>
+                    <input type="text" id="nome-cliente" name="Nome Cliente" placeholder="Ex: DJ Alok / Banda Exata" required>
+                </div>
+                <div class="grupo-campo">
+                    <label for="whats-cliente">Seu WhatsApp:</label>
+                    <input type="tel" id="whats-cliente" name="WhatsApp Cliente" placeholder="(00) 99999-9999" required>
+                </div>
+                <div class="grupo-campo">
+                    <label for="email-cliente">Seu E-mail:</label>
+                    <input type="email" id="email-cliente" name="Email Cliente" placeholder="seuemail@exemplo.com" required>
+                </div>
 
-            <button>
-                Login
-            </button>
+                <hr style="border-top: 1px dashed var(--cor-borda); margin: 30px 0;">
 
-            <button>
-                Cadastro
-            </button>
+                <h3>2. Detalhes do Show</h3>
+                <div class="grupo-campo">
+                    <label for="quantidade-faixas">Quantidade de Faixas (Músicas):</label>
+                    <input type="number" id="quantidade-faixas" name="Quantidade de Faixas" min="1" value="1" required>
+                </div>
 
-        </header>
+                <div class="grupo-campo">
+                    <label for="genero-musical">Gênero Musical Predominante:</label>
+                    <select id="genero-musical" name="Gênero Musical" required>
+                        <option value="leve">Sertanejo Acústico / MPB / Pop Leve (Complexidade Baixa)</option>
+                        <option value="medio" selected>Rock / Pop / Funk / Sertanejo In Concert (Complexidade Média)</option>
+                        <option value="pesado">Eletrônica / EDM / Trap / Metal (Complexidade Alta - Muitos Cues)</option>
+                    </select>
+                </div>
 
-        <section class="banner">
+                <div class="grupo-campo">
+                    <label>Porte do Projeto:</label>
+                    <p class="ajuda-campo" style="color: var(--cor-subtexto); font-size: 13px; margin-bottom: 12px; margin-top: -4px; font-style: italic;">
+                        *O porte é ligado inteiramente à quantidade de equipamentos (moving heads, canais DMX) e ao tamanho do mapa de iluminação que irei criar para o seu show.
+                    </p>
+                    
+                    <div class="opcoes-radio">
+                        <label class="radio-label">
+                            <input type="radio" name="porte-projeto" value="pequeno" checked>
+                            <span><strong>Pequeno Porte (Setup Enxuto)</strong><br><small>Até 20/30 equipamentos. Ideal para bares, pistas compactas.</small></span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="porte-projeto" value="intermediario">
+                            <span><strong>Intermediário (Estrutura Média)</strong><br><small>Projetos médios, palcos de festivais regionais.</small></span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="porte-projeto" value="profissional">
+                            <span><strong>Profissional (Grande Porte / Artista Nacional)</strong><br><small>Centenas de equipamentos, efeitos pixel a pixel complexos.</small></span>
+                        </label>
+                    </div>
+                </div>
 
-            <h2>
-                Bem-vindo à Exata Store
-            </h2>
+                <div class="grupo-campo">
+                    <label for="prazo-entrega">Prazo de Entrega Necessário:</label>
+                    <select id="prazo-entrega" name="Prazo de Entrega" required>
+                        <option value="normal">Normal (Até 15 dias úteis)</option>
+                        <option value="urgente">Urgente (Até 7 dias úteis) + Taxa de Urgência</option>
+                    </select>
+                </div>
 
-            <p>
-                Milhares de produtos com entrega rápida.
-            </p>
-
-            <button>
-                Comprar Agora
-            </button>
+                <input type="hidden" name="Investimento Estimado" id="input-hidden-preco">
+                
+                <button type="submit" id="btn-enviar-briefing" class="btn-principal">Solicitar Projeto por WhatsApp e E-mail</button>
+            </form>
         </section>
-            <h3 id="contador-carrinho">
-            Carrinho: 0 itens
-            </h3>
 
-             <div id="lista-carrinho">
-                <h3 id="total-carrinho">
-                    Total: R$ 0
-                </h3>
-             </div>
-
-        <section class="produtos">
-            <h2>Produtos em Destaque</h2>
+        <section class="card-resultado">
+            <h3>Resumo do Projeto</h3>
             
-            <div id="lista-produtos"></div>
+            <div class="detalhes-resumo">
+                <p>Total de Músicas: <span id="resumo-faixas">1</span></p>
+                <p>Complexidade do Gênero: <span id="resumo-genero">Média</span></p>
+                <p>Porte da Iluminação: <span id="resumo-porte">Pequeno</span></p>
+                <p>Urgência: <span id="resumo-prazo">Não</span></p>
+            </div>
 
+            <hr>
+
+            <div class="preco-estimado">
+                <span>Investimento Estimado:</span>
+                <h1 id="preco-total">R$ 0,00</h1>
+                <small>*Valores base sujeitos a alteração após análise técnica do rider.</small>
+            </div>
         </section>
+    </main>
 
-        <script src="script.js"></script>
-    </body>
-    </html>
+    <script src="script.js"></script>
+</body>
+</html>
